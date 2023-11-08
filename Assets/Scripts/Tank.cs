@@ -16,7 +16,8 @@ public class Tank : MonoBehaviour
     void Update()
     {
         var ver = Input.GetAxis(verticalAxis);
-        transform.position += transform.forward * speed * ver * Time.deltaTime;
+        //transform.position += transform.forward * speed * ver * Time.deltaTime;
+        GetComponent<Rigidbody>().velocity = transform.forward * speed * ver;
 
         var hor = Input.GetAxis(horizontalAxis);
         transform.Rotate(0, rotateSpeed * Time.deltaTime * hor,0);

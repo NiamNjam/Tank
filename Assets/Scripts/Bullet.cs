@@ -5,12 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed;
-    public GameObject BabyRocks;
-    public GameObject Rock;
+    //public GameObject BabyRocks;
+    //public GameObject Rock;
+    public GameObject particals;
+    public GameObject explode;
     private void Start()
     {
-        ///Rock.SetActive(true);
-        //BabyRocks.SetActive(false);
         //Destroy(gameObject, 2f);
     }
     // Update is called once per frame
@@ -18,16 +18,27 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+        
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Rock")
+        if (collision.gameObject.tag =="Boom")
         {
-            print("a");
-            Rock.SetActive(false);
-            BabyRocks.SetActive(true);            
+            Destroy(collision.gameObject);
+            for (int i = 0; i < 7; i++)
+            {
+                var offset = Random.insideUnitSphere;
+                Instantiate(particals, transform.position + offset, transform.rotation);
+
+            }           
+        }
+        Destroy(gameObject);
+
+        if (collision.gameObject.name == "plane")
+        {
+            //explode.transform == ;
         }
     }
 }
