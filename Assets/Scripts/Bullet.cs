@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     //public GameObject Rock;
     public GameObject particals;
     public GameObject explode;
+    //public Transform explosionPrefab;
     private void Start()
     {
         //Destroy(gameObject, 2f);
@@ -39,9 +40,12 @@ public class Bullet : MonoBehaviour
         }
         Destroy(gameObject);
 
-        if (collision.gameObject.name == "plane")
+        foreach (ContactPoint contact in collision.contacts)
         {
-            //explode.transform == ;
+            print(contact.thisCollider.name + " hit " + contact.otherCollider.name);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            Instantiate(explode, pos, rot);
         }
     }
 }
