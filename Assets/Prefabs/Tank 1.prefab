@@ -41,11 +41,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5964750911724061649}
   - component: {fileID: 5964750911724061654}
+  - component: {fileID: 3761510791715605552}
   - component: {fileID: 5964750911724061655}
   - component: {fileID: 5964750911724061648}
   m_Layer: 0
   m_Name: Tank 1
-  m_TagString: Untagged
+  m_TagString: Boom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,6 +80,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: -0.66}
+--- !u!114 &3761510791715605552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964750911724061652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5858d07b25f1f674496e973f7c5ced43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  particle: {fileID: 0}
+  particleCount: 0
+  autoDestroy: 0
 --- !u!114 &5964750911724061655
 MonoBehaviour:
   m_ObjectHideFlags: 0

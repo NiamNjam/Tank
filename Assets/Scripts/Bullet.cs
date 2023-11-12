@@ -20,19 +20,22 @@ public class Bullet : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
         
 
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag =="Boom")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             for (int i = 0; i < 7; i++)
             {
+                
                 var offset = Random.insideUnitSphere;
                 Instantiate(particals, transform.position + offset, transform.rotation);
 
-            }           
+            }
+            collision.gameObject.GetComponent<Health>().Damage();
         }
         Destroy(gameObject);
 

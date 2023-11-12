@@ -12,6 +12,10 @@ public class Tank : MonoBehaviour
     public KeyCode shootKey;
     public GameObject bullet;
     public Transform shootPoint;
+    public AudioSource Bsource;
+    public AudioClip bulletSound;
+    //public AudioSource Tsource;
+    //public AudioClip tankSound;
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +30,9 @@ public class Tank : MonoBehaviour
         {
             print("Shoot!");
             Instantiate(bullet,shootPoint.position,shootPoint.rotation);
+            Bsource.clip = bulletSound;
+            Bsource.Play();
+            ///source.volume = 0;
         }
     }
 }
